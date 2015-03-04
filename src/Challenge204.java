@@ -16,39 +16,29 @@ public class Challenge204 {
         System.out.println("Enter line: ");
         Scanner s = new Scanner(System.in);
         String phrase = s.nextLine();
-
-        if (!findLine(phrase)){
-            System.out.println("Line not found in MacBeth");
-        }
+        List<String> macBethList = fileToList();
     }
 
-    private static boolean findLine(String phrase) {
+    private static List<String> fileToList() {
+        List<String> macBeth = new ArrayList();
         try {
             BufferedReader macBethFile = new BufferedReader(new FileReader("macbeth.txt"));
-            int lineCount = 0;
-            List<String> macBeth = new ArrayList(); //stores lines of Macbeth to an ArrayList
 
-            String currentLine;
-            while ((currentLine = macBethFile.readLine()) != null) {
-                macBeth.add(currentLine);
-                if (currentLine.equals(phrase)) {
-                    for (int i = 0; i < 4; i++) {
-                        macBeth.add(macBethFile.readLine());
-                    }
-                    printLines(macBeth, lineCount);
-                    return true;
-                }
-                lineCount++;
-            }
+//            String currentLine;
+//            while ((currentLine = macBethFile.readLine()) != null) {
+//                if (currentLine.matches(){
+//                    macBeth.add(currentLine);
+//                }
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return false;
+        return macBeth;
     }
 
-    private static void printLines(List<String> file, int lineNumber){
-        for (int i = lineNumber; i<lineNumber+4; i++){
-            System.out.println(file.get(i));
+    private static int findLine(List<String> list, String phrase){
+        while (true){
+
         }
     }
 }
